@@ -1,0 +1,27 @@
+{
+  "name": "userservice",
+  "version": "1.0.0",
+  "description": "microservice for creating and listing users",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "start:dev": "nodemon -L --watch . src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/estevaoreis25/User-microservice.git"
+  },
+  "author": "Estevão de Jesus Reis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/estevaoreis25/User-microservice/issues"
+  },
+  "homepage": "https://github.com/estevaoreis25/User-microservice#readme",
+  "devDependencies": {
+    "dotenv": "^16.0.1",
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
