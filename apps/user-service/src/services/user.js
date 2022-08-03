@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt')
 const createUser = async (user) => {
   try {
     const salt = await bcrypt.genSalt(10);
-    const hash = bcrypt.hashSync(user.password, salt)
+    const hash = await bcrypt.hashSync(user.password, salt)
     const response = await prisma.user.create({
       data: {
         email: user.email,
@@ -66,9 +66,9 @@ const findUserById = async (id) => {
 const updateUser = async (id, updatedUser) => {
   try {
     var hash = undefined
-    if (updateUser.password) {
+    if (updatedUser.password) {
       const salt = await bcrypt.genSalt(10);
-      hash = bcrypt.hashSync(updateUser.password, salt)
+      hash = bcrypt.hashSync(updatedUser.password, salt)
     }
     const response = await prisma.user.update({
       where: {
