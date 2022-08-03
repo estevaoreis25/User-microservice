@@ -5,6 +5,9 @@ const { response } = require('express');
 
 const createUser = async (user) => {
   try {
+    if (!verifiEmail(user.email)) {
+      throw new Error('invalid email')
+    }
     const salt = await bcrypt.genSalt(10);
     const hash = bcrypt.hashSync(user.password, salt)
     const response = await prisma.user.create({
@@ -66,6 +69,11 @@ const findUserById = async (id) => {
 
 const updateUser = async (id, updatedUser) => {
   try {
+    if (updatedUser.email) {
+      if (!verifiEmail(updatedUser.email)) {
+        throw new Error('invalid email')
+      }
+    }
     var hash = undefined
     if (updatedUser.password) {
       const salt = await bcrypt.genSalt(10);
@@ -101,6 +109,12 @@ const deleteUser = async (id) => {
     throw e
 
   }
+}
+
+const verifiEmail = (email) => {
+  rule = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+  if (rule.test(email)) return true
+  return false
 }
 
 module.exports = { createUser, getAllUsers, findUserByEmail, findUserById, updateUser, deleteUser }

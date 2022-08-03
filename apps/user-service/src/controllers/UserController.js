@@ -13,7 +13,7 @@ const createUser = async (req, res) => {
     return res.status(200).json(user)
 
   } catch (e) {
-    return res.status(400).json(`Error creating user in database.   ERROR => ${e.message}`)
+    return res.status(400).json(`Error creating user. ERROR => ${e.message}`)
   }
 }
 
@@ -23,7 +23,7 @@ const getAll = async (req, res) => {
     return res.status(200).json(users)
 
   } catch (e) {
-    return res.status(400).json(`Error searching for all users. EROR => ${e}`)
+    return res.status(400).json(`Error searching for all users. ERROR => ${e}`)
   }
 }
 
@@ -39,7 +39,7 @@ const updateUser = async (req, res) => {
     return res.status(200).json(user)
 
   } catch (e) {
-    return res.status(400).json(e.message)
+    return res.status(400).json(`Error updating user. ERROR => ${e.message}`)
   }
 }
 
@@ -55,7 +55,7 @@ const deleteUser = async (req, res) => {
     return res.status(200).json(deletedUser)
 
   } catch (e) {
-    return res.status(400).json(e.message)
+    return res.status(400).json(`Error deleting user. ERROR => ${e.message}`)
   }
 }
 
