@@ -1,11 +1,12 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+const { response } = require('express');
 
 const createUser = async (user) => {
   try {
     const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hashSync(user.password, salt)
+    const hash = bcrypt.hashSync(user.password, salt)
     const response = await prisma.user.create({
       data: {
         email: user.email,
@@ -88,4 +89,18 @@ const updateUser = async (id, updatedUser) => {
   }
 }
 
-module.exports = { createUser, getAllUsers, findUserByEmail, findUserById, updateUser }
+const deleteUser = async (id) => {
+  try {
+    const response = prisma.user.delete({
+      where: {
+        id: id
+      }
+    })
+    return response
+  } catch (e) {
+    throw e
+
+  }
+}
+
+module.exports = { createUser, getAllUsers, findUserByEmail, findUserById, updateUser, deleteUser }
