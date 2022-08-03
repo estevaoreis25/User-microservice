@@ -18,5 +18,5 @@ model User {
   created_at DateTime @default(now())
   update_at  DateTime @updatedAt
 
-  @@map("users")
+  @@map("user")
 }
