@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  user:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/user-service
+      - /user-service/node_modules
+    container_name: user-service
+    env_file: .env
+    environment:
+      - DATABASE_URL=$DATABASE_URL
+    ports:
+     - "8080:8080"
