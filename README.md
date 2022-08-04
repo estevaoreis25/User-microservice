@@ -8,6 +8,8 @@
 &emsp; A aplicação se conecta com o Banco de Dados [PostgreSQL](https://www.postgresql.org/), criado e disponibilizado nos servidores da plataforma [Railway](https://railway.app/)
  
 ## Como subir o serviço
+&emsp; Primeiramente, faça o download do `.env` disponibilizado, e da aplicação pelo GitHub
+
 &emsp;**Observação**: *Em todos os casos de teste da aplicação é necessário adicionar o arquivo .env disponibilizado dentro do seguinte diretório*:
  
      /apps/user-service
