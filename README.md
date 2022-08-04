@@ -3,18 +3,18 @@
 ![Logo Cargo](https://cargon.com.br/wp-content/uploads/logo_branco-1.png)
  
 ## Sobre
-&emsp; O desafio trata da criação de um único microsserviço responsável por criar novos usuários e lista-los através de requisições HTTP. Para isso foi criado dois endpoints para criar e listar todos os usuários. Além desses, foi desenvolvido mais dois endpoints adicionais que torna possível editar alguma informação do usuário ou deletá-lo
+&emsp; O desafio trata da criação de um único microsserviço responsável por criar novos usuários em um banco de dados e lista-los através de requisições HTTP. Para isso foi criado dois endpoints para criar e listar todos os usuários. Além desses, foi desenvolvido mais dois endpoints adicionais que torna possível editar alguma informação do usuário ou deletá-lo.
  
-&emsp; A aplicação se conecta com o Banco de Dados [PostgreSQL](https://www.postgresql.org/), criado e disponibilizado nos servidores da plataforma [Railway](https://railway.app/)
+&emsp; A aplicação se conecta com o Banco de Dados [PostgreSQL](https://www.postgresql.org/), criado e disponibilizado nos servidores da plataforma [Railway](https://railway.app/).
  
 ## Como subir o serviço
-&emsp; Primeiramente, faça o download do `.env` disponibilizado, e da aplicação pelo GitHub
+&emsp; Primeiramente, faça o download do `.env` disponibilizado, e da aplicação pelo GitHub.
 
-&emsp;**Observação**: *Em todos os casos de teste da aplicação é necessário adicionar o arquivo .env disponibilizado dentro do seguinte diretório*:
+&emsp;**Observação**: *Para subir aplicação adequadamente é necessário adicionar o arquivo .env disponibilizado dentro do seguinte diretório*:
  
      /apps/user-service
 ### Docker
-&emsp; Uma das opções onde é possivel testar a aplicação é através da utilização do container criado para rodar a aplicação. Para isso é preciso que tenha instalado em sua máquina o [Docker](https://docs.docker.com/engine/install/) e o [Docker Compose](https://docs.docker.com/compose/install/). Tendo eles instalados siga os seguintes passos:
+&emsp; Uma das formas de testar é através da utilização do container criado para rodar a aplicação. Para isso é preciso que tenha instalado em sua máquina o [Docker](https://docs.docker.com/engine/install/) e o [Docker Compose](https://docs.docker.com/compose/install/). Tendo eles instalados siga os seguintes passos:
  
 1 - Abra o terminal e caminhe até a pasta raiz do microsserviço
  
@@ -24,11 +24,11 @@
     $ docker compose build
     $ docker compose up
  
-&emsp; Com isso a aplicação estará no ar para testar
+&emsp; Com isso a aplicação estará no ar para testar.
  
  
 ### NPM
-&emsp; Uma segunda opção é possivel testar a aplicação é através do Node juntamente com o NPM. Para isso é preciso que tenha instalado em sua máquina o [Node 16:16.0 LTS e o NPM](https://nodejs.org/en/). Tendo eles instalados siga os seguintes passos:
+&emsp; Uma segunda opção é através do Node juntamente com o NPM. Para isso é preciso que tenha instalado em sua máquina o [Node 16:16.0 LTS e o NPM](https://nodejs.org/en/). Tendo eles instalados siga os seguintes passos:
  
 1 - Abra o terminal e caminhe até a pasta raiz do microsserviço
  
@@ -39,12 +39,12 @@
     $ npm install
     $ npm run start:dev
  
-&emsp; Com isso a aplicação estará no ar para testar
+&emsp; Com isso a aplicação estará no ar para testar.
  
  
 ## Como testar
  
-&emsp;Utilizando algum aplicativo para testar requisições http como o [Insomnia](https://insomnia.rest/) ou o [Postman](https://www.postman.com/) é possivel fazer as seguintes requisições:
+&emsp;Utilizando algum aplicativo para testar requisições HTTP como o [Insomnia](https://insomnia.rest/) ou o [Postman](https://www.postman.com/) é possivel fazer as seguintes requisições:
  
 ### CreateUser
  
@@ -63,7 +63,8 @@
  "password": "pedro2augusto"
 }
 ```
- 
+**POSSÍVEIS RESULTADOS**
+
 **STATUS 200**
  
 ```json
@@ -92,6 +93,8 @@
 **Descrição**: Busca todas as instâncias de usuários já cadastradas no banco de dados ordenadas pelo atributo `name` em ordem alfabética
  
 **Endpoint**: localhost:8080/users
+
+**POSSÍVEIS RESULTADOS**
  
 **STATUS 200**
  
@@ -148,6 +151,7 @@ o endpoint ficaria assim:
  "email":"joao@email.com"
 }
 ```
+**POSSÍVEIS RESULTADOS**
  
 **STATUS 200**
  
@@ -181,7 +185,7 @@ o endpoint ficaria assim:
  
 **Método**: DELETE
  
-**Descrição**Remove um usuário existente no banco de dados caso ele exista, passando no parâmetro da requisição o id do usuário que se deseja remover.
+**Descrição**: Remove um usuário existente no banco de dados caso ele exista, passando no parâmetro da requisição o id do usuário que se deseja remover.
  
 **Endpoint**: localhost:8080/user/delete/:id
  
@@ -189,7 +193,9 @@ o endpoint ficaria assim:
 o endpoint ficaria assim:
  
      localhost:8080/user/delete/7bf2bfd5-9555-4fb1-aa4a-45214e02d07f
- 
+
+**POSSÍVEIS RESULTADOS**
+
 **STATUS 200**
  
 ```json
