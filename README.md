@@ -7,7 +7,7 @@
  
 &emsp; A aplicação se conecta com o Banco de Dados [PostgreSQL](https://www.postgresql.org/), criado e disponibilizado nos servidores da plataforma [Railway](https://railway.app/)
  
-## Instruções de Uso
+## Como subir o serviço
 &emsp;**Observação**: *Em todos os casos de teste da aplicação é necessário adicionar o arquivo .env disponibilizado dentro do seguinte diretório*:
  
      /apps/user-service
@@ -19,8 +19,8 @@
      /apps/user-service
 2 - Depois execute os seguintes comandos
  
-   $ docker compose build
-   $ docker compose up
+    $ docker compose build
+    $ docker compose up
  
 &emsp; Com isso a aplicação estará no ar para testar
  
@@ -34,8 +34,8 @@
  
 2 - Depois execute os seguintes comandos
  
-   $ npm install
-   $ npm run start:dev
+    $ npm install
+    $ npm run start:dev
  
 &emsp; Com isso a aplicação estará no ar para testar
  
@@ -143,7 +143,7 @@ o endpoint ficaria assim:
 ```json
 {
  "name":"João",
- "email":"@email.com"
+ "email":"joao@email.com"
 }
 ```
  
